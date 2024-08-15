@@ -14,21 +14,19 @@
 
     <table>
         <tr>
-            <th></th>
-            <th></th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Bank Account</th>
+            <th>Insurance Number</th>
         </tr>
+        {% for employee in employees %}
         <tr>
-            <td>Name:</td>
-            <td>Salary:</td>
-            <td>Bank Account:</td>
-            <td>Insurance Number:</td>
-        {% for employee in employees | sort(attribute='orderId') %}
                 <td><a href="#" target="_blank">{{ employee.name }}</a></td>
                 <td>{{ employee.salary }}</td>
                 <td>{{ employee.bankAccount }}</td>
                 <td>{{ employee.insuranceNumber }}</td>
-                {% endfor %}
-        </tr>
+            </tr>
+        {% endfor %}
     </table>
 
 
