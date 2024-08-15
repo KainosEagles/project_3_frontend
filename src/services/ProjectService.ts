@@ -49,6 +49,9 @@ export const addEmployeeToProject = async (employees: EmployeeRequest, id: strin
     } catch (e) {
         console.log(e);
         throw new Error("addEmployeeToProject failure.");
+    }
+}
+
 export const updateProjectStatus = async (project: ProjectStatusRequest, id: string): Promise<number> => {
     try {
         const response: AxiosResponse = await axios.put("http://localhost:8080/api/projects/"+id+"/status", project);
