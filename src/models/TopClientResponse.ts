@@ -1,4 +1,4 @@
 export type TopClientResponse = {
-    name: String,
-    value: Number
+    name: string,
+    value: number
 }
