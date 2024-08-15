@@ -1,9 +1,13 @@
 import express from "express";
 import { ProjectStatus } from "../models/Type";
+<<<<<<< HEAD
 import { createProject, getProjectById, updateProjectStatus } from "../services/ProjectService";
 import { getProjectStatusVal } from "../services/ProjectUtil";
 
 const projectStatus = getProjectStatusVal();
+=======
+import { createProject, getAllProjects } from "../services/ProjectService";
+>>>>>>> main
 
 export const getProjectForm = async (req: express.Request, res: express.Response): Promise<void> => {
     res.render('projectForm.html', {projectStatus});
@@ -19,6 +23,7 @@ export const postProjectForm = async (req: express.Request, res: express.Respons
     }
 }
 
+<<<<<<< HEAD
 export const getProjectStatusForm = async (req: express.Request, res: express.Response): Promise<void> => {
     res.render('projectStatusForm.html', {projectStatus, project: await getProjectById(req.params.id)});
 }
@@ -33,3 +38,8 @@ export const postProjectStatusForm = async (req: express.Request, res: express.R
         res.render('projectStatusForm.html', req.body);
     }
 }
+=======
+export const allProjects = async (req: express.Request, res: express.Response): Promise<void> => {
+    res.render('projectList.html', { projects: await getAllProjects()});
+}
+>>>>>>> main

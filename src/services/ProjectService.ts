@@ -14,6 +14,16 @@ export const createProject = async (project: ProjectRequest): Promise<number> =>
     }
 }
 
+export const getAllProjects = async (): Promise<ProjectResponse[]> => {
+    try {
+        const response: AxiosResponse = await axios.get("http://localhost:8080/api/projects");
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        throw new Error('Failed to get projects');
+    }
+}
+
 
 export const getProjectById = async (id: String): Promise<ProjectResponse> => {
     try {

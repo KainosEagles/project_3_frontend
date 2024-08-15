@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clients with details</title>
+    </head>
+    <body>
+        <h1>Clients with details</h1>
+        <table>
+            <tr>
+                <th>Client id</th>
+                <th>Client Name</th>
+                <th>SalesEmployee</th>
+                <th>Projects</th>
+            </tr>
+            {% for client in clients | sort(attribute='id') %}
+                <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.salesEmployee }}</td>
+                    <td>{{ client.projects }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
