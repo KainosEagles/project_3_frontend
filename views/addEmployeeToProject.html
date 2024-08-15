@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assing employee</title>
+</head>
+<body>
+    <h1>Assign employee to project</h1>
+
+    {% if errormessage %}
+    <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <form class="form" action="/projects/{{id}}/employees" method="POST">
+        <h3><label for="employee.id">
+                Choose employee to assign
+            </label></h3>
+
+        <select aria-label="Default select example" name="employees[]">
+            <option selected>Choose employee</option>
+
+            {% for employee in employees %}
+                <option value="{{employee.id}}">{{ employee.name }}</option>
+            {% endfor %}
+            
+          </select>    
+        </br></br>
+
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

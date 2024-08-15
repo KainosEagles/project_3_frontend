@@ -1,6 +1,8 @@
 import express from "express";
-import { createProject, getAllProjects, getProjectById, updateProjectStatus } from "../services/ProjectService";
+import { addEmployeeToProject, createProject, getAllProjects, updateProjectStatus, getProjectById } from "../services/ProjectService";
 import { getProjectStatusVal } from "../services/ProjectUtil";
+
+import { getAllDeliveryEmployees } from "../services/EmployeeService";
 
 const projectStatus = getProjectStatusVal();
 
@@ -34,4 +36,18 @@ export const postProjectStatusForm = async (req: express.Request, res: express.R
 
 export const allProjects = async (req: express.Request, res: express.Response): Promise<void> => {
     res.render('projectList.html', { projects: await getAllProjects()});
+}
+
+export const getAddEmployeeToProject = async (req: express.Request, res: express.Response): Promise<void> => {
+    res.render('addEmployeeToProject.html', { employees: await getAllDeliveryEmployees(), id: req.params.id });
+}
+
+export const postAddEmployeeToProject = async (req: express.Request, res: express.Response): Promise<void> => {
+    try {
+        await addEmployeeToProject(req.body.employees, req.params.id);
+        res.redirect('/projects');
+    } catch (e) {
+        res.locals.errormessage = e.message;
+        res.render('/projects', req.body);
+    }
 }
