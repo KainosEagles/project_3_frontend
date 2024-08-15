@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client list</title>
+</head>
+<body>
+    <h1>Client list</h1>
+
+    {% if errormessage %}
+    <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Creation Date</th>
+            <th>Acquired By</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+                <td><a href="#" target="_blank">{{ client.name }}</a></td>
+                <td>{{ client.address }}</td>
+                <td>{{ client.phone }}</td>
+                <td>{{ client.createdDate }}</td>
+                <td>{{ client.acquiredBy }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

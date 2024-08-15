@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New sales employee</title>
+</head>
+<body>
+    <h1>Add new sales employee</h1>
+
+    {% if errormessage %}
+    <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <form class="form" action="/salesEmployeeForm" method="POST">
+        <h3><label for="name">
+                Name:
+            </label></h3>
+        <input type="text" name="name" id="name" value="{{name}}">
+
+        <h3><label for="salary">
+                Salary:
+            </label></h3>
+        <input type="text" name="salary" id="salary" value="{{salary}}">
+
+        <h3><label for="bankAccount">
+                Bank Account (28 characters) PL10105000997603123456789123:
+            </label></h3>
+        <input type="text" name="bankAccount" id="bankAccount" value="{{bankAccount}}">
+
+        <h3><label for="insuranceNumber">
+                Insurance Number:
+            </label></h3>
+        <input type="text" name="insuranceNumber" id="insuranceNumber" value="{{insuranceNumber}}">
+
+        <h3><label for="commissionRate">
+                Commision rate:
+            </label></h3>
+        <input type="text" name="commissionRate" id="commissionRate" value="{{commissionRate}}">
+
+        </br></br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
