@@ -2,7 +2,7 @@ import express from "express";
 import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
-import { getClientWithHighestValueOfProjects } from "./controllers/ClientController";
+import { getClientsWithDetails, getClientWithHighestValueOfProjects } from "./controllers/ClientController";
 import { getProjectForm, postProjectForm } from "./controllers/ProjectController";
 import { deliveryEmployees, salesEmployees } from "./controllers/EmployeeController";
 
@@ -31,6 +31,8 @@ app.listen(3000, () => {
 });
 
 app.get('/clientTop', getClientWithHighestValueOfProjects);
+app.get('/clientsWithDetails', getClientsWithDetails);
+
 app.get('/projectForm', getProjectForm);
 app.post('/projectForm', postProjectForm);
 app.get('/deliveryEmployees', deliveryEmployees);
