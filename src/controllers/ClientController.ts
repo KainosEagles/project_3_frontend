@@ -1,6 +1,10 @@
 import express from "express";
-import { getClientTop } from "../services/ClientService";
+import { getAllClients, getClientTop } from "../services/ClientService";
 
 export const getClientWithHighestValueOfProjects = async (req: express.Request, res: express.Response): Promise<void> => {
     res.render('clientTop.html', { client: await getClientTop() });
+}
+
+export const allClients = async (req: express.Request, res: express.Response): Promise<void> => {
+    res.render('clientList.html', {clients: await getAllClients()});
 }
