@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery employees</title>
+</head>
+<body>
+    <h1>Delivery employee list</h1>
+
+    {% if errormessage %}
+    <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>Salary:</td>
+            <td>Bank Account:</td>
+            <td>Insurance Number:</td>
+        {% for employee in employees | sort(attribute='orderId') %}
+                <td><a href="#" target="_blank">{{ employee.name }}</a></td>
+                <td>{{ employee.salary }}</td>
+                <td>{{ employee.bankAccount }}</td>
+                <td>{{ employee.insuranceNumber }}</td>
+                {% endfor %}
+        </tr>
+    </table>
+
+
+</body>
+</html>
