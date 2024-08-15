@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Project</title>
+    </head>
+    <body>
+        <h1>Create Project</h1>
+
+        {% if errormessage %}
+            <h3>{{ errormessage }}</h3>
+        {% endif %}
+
+        <form class="form" action="/projectForm" method="post">
+            <h3><label for="name">
+                Name:
+            </label></h3>
+            <input id="name" name="name" value="{{name}}" type="text">
+
+            <h3><label for="value">
+                Value:
+            </label></h3>
+            <input id="value" name="value" value="{{value}}" type="text">
+            
+            <h3><label for="status">
+                Status:
+            </label></h3>
+            <select id="status" name="status">
+                {% for status in projectStatus %}
+                    <option value="{{status}}">{{status}}</option>
+                {% endfor %}
+            </select>
+
+            <h3><label for="clientId">
+                Client:
+            </label></h3>
+            <select id="clientId" name="clientId">
+                    <option value="1">Klient</option>
+            </select>
+
+            <h3><label for="techleadId">
+                Techlead:
+            </label></h3>
+            <select id="techleadId" name="techleadId">
+                <option value="1">Techlead</option>
+            </select> 
+
+            <br><br>
+
+            <button id="submit">Submit</button>
+        </form>
+    </body>
+</html>
