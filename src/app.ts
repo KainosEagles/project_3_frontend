@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import session from "express-session";
 
 import { getProjectForm, postProjectForm } from "./controllers/ProjectController";
+import { deliveryEmployees } from "./controllers/EmployeeController";
 
 const app = express();
 
@@ -31,3 +32,4 @@ app.listen(3000, () => {
 
 app.get('/projectForm', getProjectForm);
 app.post('/projectForm', postProjectForm);
+app.get('/deliveryEmployees', deliveryEmployees);
