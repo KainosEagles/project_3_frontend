@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales employees</title>
+</head>
+<body>
+    <h1>Sales employee list</h1>
+
+    {% if errormessage %}
+    <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Bank Account</th>
+            <th>Insurance Number</th>
+            <th>Commision Rate</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+                <td><a href="#" target="_blank">{{ employee.name }}</a></td>
+                <td>{{ employee.salary }}</td>
+                <td>{{ employee.bankAccount }}</td>
+                <td>{{ employee.insuranceNumber }}</td>
+                <td>{{ employee.commissionRate }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>
