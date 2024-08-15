@@ -34,6 +34,10 @@ app.listen(3000, () => {
 
 app.get('/projects/:id/employees', getAddEmployeeToProject);
 app.post('/projects/:id/employees', postAddEmployeeToProject);
+app.get('/', async (req: express.Request, res: express.Response) => {
+  res.render('index.html');
+});
+
 app.get('/clientTop', allowRoles(), getClientWithHighestValueOfProjects);
 app.get('/clientsWithDetails', allowRoles(), getClientsWithDetails);
 app.get('/projectForm', allowRoles(), getProjectForm);
