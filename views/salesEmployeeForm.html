@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New delivery employee</title>
+    <title>New sales employee</title>
 </head>
 <body>
-    <h1>Add new delivery employee</h1>
+    <h1>Add new sales employee</h1>
 
     {% if errormessage %}
     <h3>{{ errormessage }}</h3>
     {% endif %}
 
-    <form class="form" action="/deliveryEmployeeForm" method="POST">
+    <form class="form" action="/salesEmployeeForm" method="POST">
         <h3><label for="name">
                 Name:
             </label></h3>
@@ -32,6 +32,11 @@
                 Insurance Number:
             </label></h3>
         <input type="text" name="insuranceNumber" id="insuranceNumber" value="{{insuranceNumber}}">
+
+        <h3><label for="commissionRate">
+                Commision rate:
+            </label></h3>
+        <input type="text" name="commissionRate" id="commissionRate" value="{{commissionRate}}">
 
         </br></br>
 

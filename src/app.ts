@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import { getClientWithHighestValueOfProjects } from "./controllers/ClientController";
 import { getProjectForm, postProjectForm } from "./controllers/ProjectController";
-import { deliveryEmployees, getDeliveryEmployeeForm, postDeliveryEmployeeForm, salesEmployees } from "./controllers/EmployeeController";
+import { deliveryEmployees, getDeliveryEmployeeForm, getSalesEmployeeForm, postDeliveryEmployeeForm, postSalesEmployeeForm, salesEmployees } from "./controllers/EmployeeController";
 
 const app = express();
 
@@ -37,3 +37,6 @@ app.get('/deliveryEmployees', deliveryEmployees);
 app.get('/salesEmployees', salesEmployees);
 app.get('/deliveryEmployeeForm', getDeliveryEmployeeForm);
 app.post('/deliveryEmployeeForm', postDeliveryEmployeeForm);
+app.get('/salesEmployeeForm', getSalesEmployeeForm);
+app.post('/salesEmployeeForm', postSalesEmployeeForm);
+
