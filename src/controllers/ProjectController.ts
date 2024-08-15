@@ -1,5 +1,4 @@
 import express from "express";
-import { ProjectStatus } from "../models/Type";
 import { addEmployeeToProject, createProject, getAllProjects, updateProjectStatus, getProjectById } from "../services/ProjectService";
 import { getProjectStatusVal } from "../services/ProjectUtil";
 
