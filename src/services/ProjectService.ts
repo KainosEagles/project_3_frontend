@@ -24,7 +24,7 @@ export const getAllProjects = async (): Promise<ProjectResponse[]> => {
     }
 }
 
-export const getProjectById = async (id: String): Promise<ProjectResponse> => {
+export const getProjectById = async (id: stringtring): Promise<ProjectResponse> => {
     try {
         const response: AxiosResponse = await axios.get("http://localhost:8080/api/projects/" + id);
  
@@ -36,7 +36,7 @@ export const getProjectById = async (id: String): Promise<ProjectResponse> => {
 }
 
 
-export const addEmployeeToProject = async (employees: EmployeeRequest, id: String): Promise<ProjectResponse> => {
+export const addEmployeeToProject = async (employees: EmployeeRequest, id: string): Promise<ProjectResponse> => {
     const emp = {
         "id": employees,
         "name": "string",
