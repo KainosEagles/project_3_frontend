@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project list</title>
+</head>
+<body>
+    <h1>Project list</h1>
+
+    {% if errormessage %}
+    <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+                <td>{{ project.name }}</td>
+                <td>{{ project.value }}</td>
+                <td>{{ project.status }}</td>
+                <td><a href="">Details</a></td>
+                <td><a href="">Assign employee</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
