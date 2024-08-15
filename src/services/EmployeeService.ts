@@ -32,3 +32,13 @@ export const createDeliveryEmployee = async (employee: EmployeeRequest): Promise
         throw new Error('Failed to create employee. ');
     }
 }
+
+export const createSalesEmployee = async (employee: SalesEmployeeResponse): Promise<number> => {
+    try {
+        const response: AxiosResponse = await axios.post("http://localhost:8080/api/employees/sales", employee);
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        throw new Error('Failed to create employee. ');
+    }
+}
