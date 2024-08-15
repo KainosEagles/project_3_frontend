@@ -20,6 +20,6 @@ export const postDeliveryEmployeeForm = async (req: express.Request, res: expres
     } catch (e) {
         res.locals.errormessage = e.message;
         res.render('deliveryEmployeeForm.html');
-        
+    
     }
 }
