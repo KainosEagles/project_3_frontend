@@ -3,7 +3,7 @@ import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
 
-import { deliveryEmployees } from "./controllers/EmployeeController";
+import { deliveryEmployees, salesEmployees } from "./controllers/EmployeeController";
 
 const app = express();
 
@@ -30,3 +30,4 @@ app.listen(3000, () => {
 });
 
 app.get('/deliveryEmployees', deliveryEmployees);
+app.get('/salesEmployees', salesEmployees);
