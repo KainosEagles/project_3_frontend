@@ -1,11 +1,14 @@
 import express from "express";
 import { ProjectStatus } from "../models/Type";
-import { addEmployeeToProject, createProject, getAllProjects } from "../services/ProjectService";
+import { addEmployeeToProject, createProject, getAllProjects, updateProjectStatus, getProjectById } from "../services/ProjectService";
+import { getProjectStatusVal } from "../services/ProjectUtil";
+
 import { getAllDeliveryEmployees } from "../services/EmployeeService";
 
+const projectStatus = getProjectStatusVal();
+
 export const getProjectForm = async (req: express.Request, res: express.Response): Promise<void> => {
-    const projectStatusValues = Object.keys(ProjectStatus).filter(key => isNaN(Number(key)));
-    res.render('projectForm.html', {projectStatus: projectStatusValues});
+    res.render('projectForm.html', {projectStatus});
 }
 
 export const postProjectForm = async (req: express.Request, res: express.Response): Promise<void> => {
@@ -15,6 +18,20 @@ export const postProjectForm = async (req: express.Request, res: express.Respons
     } catch (e) {
         res.locals.errormessage = e.message;
         res.render('projectForm.html', req.body);
+    }
+}
+
+export const getProjectStatusForm = async (req: express.Request, res: express.Response): Promise<void> => {
+    res.render('projectStatusForm.html', {projectStatus, project: await getProjectById(req.params.id)});
+}
+
+export const postProjectStatusForm = async (req: express.Request, res: express.Response): Promise<void> => {
+    try {
+        await updateProjectStatus(req.body, req.params.id);
+        res.redirect('/');
+    } catch (e) {
+        res.locals.errormessage = e.message;
+        res.render('projectStatusForm.html', req.body);
     }
 }
 
