@@ -1,9 +1,9 @@
 import { ProjectStatus } from "./ProjectStatus"
 
 export type ProjectRequest = {
-    name: String,
-    value: Number,
+    name: string,
+    value: number,
     status: ProjectStatus,
-    clientId: Number,
-    techleadId: Number
+    clientId: number,
+    techleadId: number
 }
