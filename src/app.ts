@@ -2,7 +2,7 @@ import express from "express";
 import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
-import { allProjects, getProjectForm, postProjectForm } from "./controllers/ProjectController";
+import { allProjects, getAddEmployeeToProject, getProjectForm, postAddEmployeeToProject, postProjectForm } from "./controllers/ProjectController";
 import { getClientsWithDetails, getClientWithHighestValueOfProjects, allClients } from "./controllers/ClientController";
 import { deliveryEmployees, getDeliveryEmployeeForm, getSalesEmployeeForm, postDeliveryEmployeeForm, postSalesEmployeeForm, salesEmployees } from "./controllers/EmployeeController";
 
@@ -43,3 +43,6 @@ app.get('/salesEmployeeForm', getSalesEmployeeForm);
 app.post('/salesEmployeeForm', postSalesEmployeeForm);
 app.get('/clients', allClients);
 app.get('/projects', allProjects);
+
+app.get('/projects/:id/employees', getAddEmployeeToProject);
+app.post('/projects/:id/employees', postAddEmployeeToProject);
