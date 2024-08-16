@@ -13,11 +13,11 @@
     {% endif %}
 
     <form class="form" action="/projects/{{id}}/employees" method="POST">
-        <h3><label for="employee.id">
+        <h3><label for="employees">
                 Choose employee to assign
             </label></h3>
 
-        <select aria-label="Default select example" name="employees[]">
+        <select aria-label="Default select example" name="employees" id="employees">
             <option selected>Choose employee</option>
 
             {% for employee in employees %}

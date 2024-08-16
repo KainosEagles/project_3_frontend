@@ -43,7 +43,7 @@ export const addEmployeeToProject = async (employees: EmployeeRequest, id: strin
         "bankAccount": "string",
         "insuranceNumber": "string"
       }
-    try {
+    try {        
         const response: AxiosResponse = await axios.post("http://localhost:8080/api/projects/" + id + "/employees", emp);
         return response.data;
     } catch (e) {
