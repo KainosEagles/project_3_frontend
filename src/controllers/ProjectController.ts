@@ -44,10 +44,11 @@ export const getAddEmployeeToProject = async (req: express.Request, res: express
 
 export const postAddEmployeeToProject = async (req: express.Request, res: express.Response): Promise<void> => {
     try {
+        console.log(req.body);
         await addEmployeeToProject(req.body.employees, req.params.id);
         res.redirect('/projects');
     } catch (e) {
         res.locals.errormessage = e.message;
-        res.render('/projects', req.body);
+        res.render('addEmployeeToProject.html', req.body);
     }
 }
