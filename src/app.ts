@@ -32,8 +32,7 @@ app.listen(3000, () => {
     console.log('Server started on port 3000');
 });
 
-app.get('/projects/:id/employees', getAddEmployeeToProject);
-app.post('/projects/:id/employees', postAddEmployeeToProject);
+
 app.get('/', async (req: express.Request, res: express.Response) => {
   res.render('index.html');
 });
@@ -54,3 +53,5 @@ app.get('/clients', allowRoles(), allClients);
 app.get('/projects', allowRoles(), allProjects);
 app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
+app.get('/projects/:id/employees', getAddEmployeeToProject);
+app.post('/projects/:id/employees', postAddEmployeeToProject);
